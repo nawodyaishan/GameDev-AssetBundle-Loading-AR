@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public API api;
+
+    public void LoadContent(string name)
     {
-        
+        DestroyAllChildren();
+        api.GetBundleObject(name, OnContentLoaded, transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnContentLoaded(GameObject content)
     {
-        
+        //do something cool here
+        Debug.Log("Loaded: " + content.name);
+    }
+
+    void DestroyAllChildren()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }
