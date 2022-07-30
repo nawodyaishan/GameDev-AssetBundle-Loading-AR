@@ -17,11 +17,11 @@ public class API : MonoBehaviour
         string bundleURL = BundleFolderURL + assetName + "-";
 
         //append platform to asset bundle name
-#if UNITY_ANDROID
+        #if UNITY_ANDROID
         bundleURL += "Android";
-#else
+        #else
         bundleURL += "IOS";
-#endif
+        #endif
 
         Debug.Log("Requesting bundle at " + bundleURL);
 
